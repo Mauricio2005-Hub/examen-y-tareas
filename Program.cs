@@ -61,46 +61,4 @@ public class Tienda
         }
     }
 
-    public void MostrarProductos()
-    {
-        if (producto != null)
-        {
-            Console.WriteLine(producto.ToString());
-            siguienteProducto.MostrarProductos();
-        }
-    }
-
-    public double CalcularPrecioTotal()
-    {
-        if (producto == null)
-        {
-            return 0;
-        }
-        else
-        {
-            return producto.Precio + siguienteProducto.CalcularPrecioTotal();
-        }
-    }
-}
-
-public class Program
-{
-    public static void Main(string[] args)
-    {
-        Tienda tienda = new Tienda();
-
-        Producto producto1 = new Producto("Producto 1", 101, 10.5);
-        Producto producto2 = new Producto("Producto 2", 102, 20.75);
-        Producto producto3 = new Producto("Producto 3", 103, 15.0);
-
-        tienda.AgregarProducto(producto1);
-        tienda.AgregarProducto(producto2);
-        tienda.AgregarProducto(producto3);
-
-        Console.WriteLine("Información de todos los productos:");
-        tienda.MostrarProductos();
-
-        double precioTotal = tienda.CalcularPrecioTotal();
-        Console.WriteLine($"Precio total de todos los productos: {precioTotal}");
-    }
 }
